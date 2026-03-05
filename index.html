@@ -2,50 +2,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AI Scanner</title>
-
+<title>8 Наурыз</title>
 <style>
-body{
-background:black;
-color:#00ff9f;
-font-family:monospace;
-font-size:24px;
-padding:40px;
-}
+body { background:black; color:#00ff9f; font-family:monospace; font-size:24px; padding:40px; }
 </style>
-
 </head>
-
 <body>
-
 <div id="text"></div>
 
 <script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name") || "Student";
 
-let lines = [
-"Initializing AI...",
-"Scanning student...",
-"Student detected",
-"Name: *****",
+const lines = [
+`Initializing AI...`,
+`Scanning student...`,
+`Student detected`,
+`Name: ${name}`,
 "",
-"Processing data...",
-"",
-"🌸 8 Наурыз құтты болсын!",
-"— Дастан ағай"
+`🌸 ${name}, 8 Наурыз құтты болсын!`,
+`— Дастан ағай`
 ];
 
 let i = 0;
-
 function showLine(){
-if(i < lines.length){
-document.getElementById("text").innerHTML += lines[i] + "<br>";
-i++;
-setTimeout(showLine,1000);
+    if(i < lines.length){
+        document.getElementById("text").innerHTML += lines[i] + "<br>";
+        i++;
+        setTimeout(showLine,1000);
+    }
 }
-}
-
 showLine();
-
 </script>
 
 </body>
